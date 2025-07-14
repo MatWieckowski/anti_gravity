@@ -121,12 +121,5 @@ The script automatically logs measurement and control data to a file named `moto
 
 ## Author
 
-[Your Name/GitHub Username]
-
----
-
-## License
-
-This project is licensed under the [License Name, e.g., MIT License]. See the [LICENSE](LICENSE) file (if you add one) for more details.
-
+[MatWieckowski]
 ---
