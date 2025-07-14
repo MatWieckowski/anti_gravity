@@ -49,7 +49,7 @@ def main():
             if motor_angle is not None:
                 output_angle = motor_angle / REDUCTION_RATIO
                 
-                print(f"Kąt na wyjściu (skorygowany): {output_angle:6.2f}°", end='\r')
+                print(f"Kąt silnika (surowy): {motor_angle:7.2f}°   |   Kąt na wyjściu (skorygowany): {output_angle:6.2f}°", end='\r')
             else:
                 print("Nie otrzymano odpowiedzi od silnika...", end='\r')
             

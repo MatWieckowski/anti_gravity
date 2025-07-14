@@ -11,7 +11,7 @@ ANGLE_OFFSET_DEGREES = 240.07
 
 #Stałe do strojenia
 SMOOTHING_FACTOR = 0.5 
-D_REG = 0.05
+DAMPING_FACTOR = 0.05
 
 # Stałe fizyczne 
 MASS_KG = 1.25
@@ -82,7 +82,7 @@ def main_control_loop():
             damping_torque_nm = 0.0
             if time_delta > 0:
                 angular_velocity = (output_angle_radians - last_angle_rad) / time_delta
-                damping_torque_nm = -D_REG * angular_velocity
+                damping_torque_nm = -DAMPING_FACTOR * angular_velocity
                 
             last_angle_rad = output_angle_radians
             target_torque_nm = gravity_torque_nm + damping_torque_nm
