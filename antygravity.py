@@ -2,10 +2,10 @@ import can
 import time
 import math
 import struct
-import csv # Import modułu csv
-import os # Import modułu os do sprawdzania istnienia pliku
+import csv 
+import os 
 
-# --- Konfiguracja ---
+#Konfiguracja
 CAN_INTERFACE = 'COM7'
 CAN_BITRATE = 1000000
 MOTOR_ID = 3
@@ -79,12 +79,9 @@ def main_control_loop():
     header = ['Timestamp', 'Output Angle [deg]', 'Motor Angle [deg]', 'Calibrated Motor Angle [deg]', 'Angular Velocity [rad/s]', 'Target Torque [Nm]', 'Current Torque [Nm]', 'Is Holding']
 
     try:
-        # Otwórz plik CSV w trybie append ('a'), z 'newline=''' aby uniknąć pustych wierszy
-        # Jeśli plik nie istnieje, zostanie utworzony i dodany zostanie nagłówek
         csv_file = open(CSV_FILENAME, 'a', newline='')
         csv_writer = csv.writer(csv_file)
 
-        # Sprawdź, czy plik jest pusty (nowo utworzony) i dodaj nagłówek
         if os.stat(CSV_FILENAME).st_size == 0:
             csv_writer.writerow(header)
 
@@ -148,7 +145,6 @@ def main_control_loop():
         motor_on_off(False)
         bus.shutdown()
         if csv_file:
-            csv_file.close() # Zamknij plik CSV po zakończeniu działania
-
+            csv_file.close() 
 if __name__ == "__main__":
     main_control_loop()
