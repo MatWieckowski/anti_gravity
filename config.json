@@ -1,0 +1,64 @@
+{
+    "can": {
+        "interface": "COM7",
+        "bitrate": 1000000
+    },
+    "motors": [
+        {
+            "name": "Silnik Glowny",
+            "id": 3,
+            "reduction_ratio": 6.0,
+            "angle_offset_degrees": 240.07,
+            "max_torque_nm": 1.2,
+            "torque_limit_nm": 1.0,
+            "kt_nm_per_a": 0.128,
+            "control": {
+                "mass_kg": 1.25,
+                "com_distance_m": 0.06,
+                "damping_reg": 0.06,
+                "smoothing_factor": 0.85
+            },
+            "friction": {
+                "coulomb_iq": 1.821,
+                "viscous_coeff_iq": 0.002
+            }
+        },
+        {
+            "name": "Silnik Pomocniczy",
+            "id": 4,
+            "reduction_ratio": 6.0,
+            "angle_offset_degrees": 930,
+            "max_torque_nm": 1.2,
+            "torque_limit_nm": 1.0,
+            "kt_nm_per_a": 0.128,
+            "control": {
+                "mass_kg": 1.25,
+                "com_distance_m": 0.06,
+                "damping_reg": 0.04,
+                "smoothing_factor": 0.5
+            },
+            "friction": {
+                "coulomb_iq": 1.7821,
+                "viscous_coeff_iq": 0.0002
+            }
+        }
+    ],
+    "global_params": {
+        "gravity": 9.81,
+        "hold_zone_min_output_angle": 175.0,
+        "hold_zone_max_output_angle": 185.0,
+        "settle_velocity_threshold_rps": 0.8,
+        "encoder_max_value": 65535.0,
+        "iq_control_range": 2048,
+        "max_current_a_for_iq_range": 33.0
+    },
+    "commands": {
+        "tx_rx_base_id": "0x140",
+        "motor_off": "0x80",
+        "motor_on": "0x88",
+        "torque_closed_loop": "0xA1"
+    },
+    "logging": {
+        "csv_filename": "motor_data_combined_comp.csv"
+    }
+}
